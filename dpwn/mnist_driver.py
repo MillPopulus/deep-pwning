@@ -64,7 +64,7 @@ def main(argv=None):
     y_conv, logits, keep_prob, param_dict = lenet5.model(x)
 
     loss = tf.reduce_mean(
-        tf.nn.sparse_softmax_cross_entropy_with_logits(logits, y_))
+        tf.nn.sparse_softmax_cross_entropy_with_logits(logits=logits, labels=y_))
 
     # L2 regularization for the fully connected parameters.
     regularizers = (tf.nn.l2_loss(param_dict['fc1_W']) 
